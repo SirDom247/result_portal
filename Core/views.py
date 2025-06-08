@@ -44,10 +44,12 @@ class UploadResultView(APIView):
         try:
             processed_results = process_excel(full_path)
             send_result_upload_notification(
-                email='admin@example.com',
+                email='dominicudousoro@live.com',
                 subject='Result Upload Complete',
                 message=f'{len(processed_results)} results processed successfully.'
             )
             return Response({'message': f'{len(processed_results)} results processed.'}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
